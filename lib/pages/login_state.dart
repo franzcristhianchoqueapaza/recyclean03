@@ -4,13 +4,19 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginState with ChangeNotifier{
   bool _loggedIn=false;
+  bool _loading=false;
+
   bool isLoggedIn()=>_loggedIn;
+  bool isLoading()=>_loading;
 
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   void login() async{
+    _loading=true;
+    notifyListeners();
     var user= await _handleSignIn();
+    _loading=false;
     if(user!=null){
      _loggedIn=true;
      notifyListeners();

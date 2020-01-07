@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 import 'package:recyclean_03/day_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recyclean_03/pages/login_state.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -87,7 +89,9 @@ class _HomePageState extends State<HomePage> {
       actions: <Widget>[
           IconButton(
           icon: Icon(Icons.more_vert),
-          onPressed: (){},
+          onPressed: (){
+            Provider.of<LoginState>(context).logout();
+          },
         ),
       ],
     );
