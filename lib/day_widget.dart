@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
+//-------------------------------------------------------------
 class DayWidget extends StatefulWidget {
   final List<DocumentSnapshot> documents;
   final Map<String,String> rutas;
@@ -37,24 +37,24 @@ class DayWidget extends StatefulWidget {
   @override
   _DayWidgetState createState() => _DayWidgetState();
 }
-
+//-------------------------------------------------------------
 class _DayWidgetState extends State<DayWidget> {
   @override
   Widget build(BuildContext context) {
-    print(widget.hora1);
+    print(widget.hora1);//eliminar
     return Expanded(
           child: Column(
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color.fromRGBO(56, 39, 180,0.3),Color.fromRGBO(56, 39, 180,0.1)]
-              )
-            ),
-            height: 10.0,
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     gradient: LinearGradient(
+          //       begin: Alignment.topCenter,
+          //       end: Alignment.bottomCenter,
+          //       colors: [Color.fromRGBO(56, 39, 180,0.3),Color.fromRGBO(56, 39, 180,0.1)]
+          //     )
+          //   ),
+          //   height: 10.0,
+          // ),
           _list(),
         ],
       ),
@@ -64,7 +64,7 @@ class _DayWidgetState extends State<DayWidget> {
   Widget _list(){
     return Expanded(
       child: Container(
-        color: Color.fromRGBO(56, 39, 180,0.1),
+        color: Colors.grey[200],
         child: ListView.builder(
           itemCount: widget.rutas.keys.length,
           itemBuilder: (BuildContext context, int index){
@@ -74,7 +74,7 @@ class _DayWidgetState extends State<DayWidget> {
             var hora02=widget.hora2[key];
             return _item(hora01,hora02,data);
           },
-          padding: EdgeInsets.only(bottom: 5.0, top: 5.0),
+          padding: EdgeInsets.only(bottom: 5.0,top:0.0,),
         ),
       ),
     );

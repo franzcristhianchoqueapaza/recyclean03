@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:recyclean_03/day_widget.dart';
-
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   PageController _controller;
   int currentPage=DateTime.now().weekday-1;
   Stream<QuerySnapshot> _query;
-
+//-------------------------------------------------------------
   @override
   void initState() { 
     super.initState();
@@ -27,13 +24,12 @@ class _HomePageState extends State<HomePage> {
     .where('Day', isEqualTo: currentPage+1)
     .snapshots();
 
-
-
     _controller=PageController(
       initialPage: currentPage,
       viewportFraction: 0.4,
     );
   }
+//-------------------------------------------------------------
   Widget _bottomAction(IconData icon,String routeNavigator,String name){
     return InkWell(
         child: Padding(
@@ -70,25 +66,16 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+  //-------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            _bottomAction2('assets/compactador.svg','','Compactador'),
-            _bottomAction2('assets/baranda.svg','','Baranda'),
-            _bottomAction(Icons.map,'','Botellas'),
-            _bottomAction(Icons.textsms,'/reports','Reportes'),
-          ],
-        ),
-      ),
+      bottomNavigationBar: _bottomBar(),
       body: _body(),
     );
   }
+  //-------------------------------------------------------------
   Widget _appBar(){
     return AppBar(
       backgroundColor: Color.fromRGBO(56, 39, 180, 1.0),
@@ -105,6 +92,7 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
+  //-------------------------------------------------------------
   Widget _body(){
     return SafeArea(
       child: Column(
@@ -128,8 +116,24 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
+  //-------------------------------------------------------------
+  Widget _bottomBar(){
+    return BottomAppBar(
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          _bottomAction2('assets/compactador.svg','','Compactador'),
+          _bottomAction2('assets/baranda.svg','','Baranda'),
+          _bottomAction(Icons.map,'','Botellas'),
+          _bottomAction(Icons.textsms,'/reports','Reportes'),
+        ],
+      ),
+    );
+  }
+//-------------------------------------------------------------
   Widget _pageItem(String nombre, int position){
+
     var _aligment;
     final selected=TextStyle(
       fontSize: 18.0,
@@ -157,6 +161,7 @@ class _HomePageState extends State<HomePage> {
       )
     );
   }
+  //-------------------------------------------------------------
   Widget _selector(){
     return SizedBox.fromSize(
       size: Size.fromHeight(40.0),

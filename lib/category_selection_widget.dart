@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//-------------------------------------------------------------
 class CategorySelectorWidget extends StatefulWidget {
   final Map<String,IconData> categories;
   final Function(String) onValueChanged;
@@ -9,7 +9,7 @@ class CategorySelectorWidget extends StatefulWidget {
   @override
   _CategorySelectorWidgetState createState() => _CategorySelectorWidgetState();
 }
-
+//-------------------------------------------------------------
 class CategoryWidget extends StatelessWidget {
   final String name;
   final IconData icon;
@@ -45,7 +45,7 @@ class CategoryWidget extends StatelessWidget {
     );
   }
 }
-
+//-------------------------------------------------------------
 class _CategorySelectorWidgetState extends State<CategorySelectorWidget> {
   String currentItem='Basura en\nCalle';
 
