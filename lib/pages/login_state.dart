@@ -26,6 +26,7 @@ class LoginState with ChangeNotifier{
     }
   }
   void logout(){
+    _googleSignIn.signOut();
     _loggedIn=false;
     notifyListeners();
   }
