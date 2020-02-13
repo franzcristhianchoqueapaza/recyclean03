@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           _bottomAction2('assets/compactador.svg','','Compactador'),
           _bottomAction2('assets/baranda.svg','','Baranda'),
-          _bottomAction(Icons.map,'','Botellas'),
+          _bottomAction(Icons.map,'/maps','Botellas'),
           _bottomAction(Icons.textsms,'/reports','Reportes'),
         ],
       ),

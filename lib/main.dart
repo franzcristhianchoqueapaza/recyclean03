@@ -6,6 +6,7 @@ import 'package:recyclean_03/pages/login_page.dart';
 
 import 'package:provider/provider.dart';
 import 'package:recyclean_03/pages/login_state.dart';
+import 'package:recyclean_03/pages/bottle_map.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
             }
           },
           '/reports'    : (BuildContext context)=>Reports(),
+          '/maps'    : (BuildContext context)=>BottleMap(),
         },
       ),
     );
